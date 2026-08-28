@@ -1,17 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Energy Saver</title>
+    <title>Energy Saver ⚡</title>
 </head>
+
 <body>
 
     <h1>⚡ Energy Saver 🌱</h1>
 
     <p>Save energy. Save money. Protect our planet.</p>
 
-    <h2>Welcome!</h2>
+    <h2>🔌 Electricity Calculator</h2>
 
-    <p>This project helps you understand your electricity usage.</p>
+    <label>Appliance:</label>
+    <input type="text" id="appliance" placeholder="Example: Fan">
+
+    <br><br>
+
+    <label>Power (Watts):</label>
+    <input type="number" id="power" placeholder="Example: 75">
+
+    <br><br>
+
+    <label>Hours used per day:</label>
+    <input type="number" id="hours" placeholder="Example: 5">
+
+    <br><br>
+
+    <button onclick="calculateEnergy()">Calculate Energy</button>
+
+    <h2>📊 Result</h2>
+
+    <p id="result">Enter your appliance details above.</p>
+
+    <script>
+        function calculateEnergy() {
+
+            let appliance = document.getElementById("appliance").value;
+            let power = Number(document.getElementById("power").value);
+            let hours = Number(document.getElementById("hours").value);
+
+            let dailyEnergy = (power * hours) / 1000;
+            let monthlyEnergy = dailyEnergy * 30;
+
+            document.getElementById("result").innerHTML =
+                appliance + " uses approximately " +
+                dailyEnergy.toFixed(2) + " kWh per day and " +
+                monthlyEnergy.toFixed(2) + " kWh per month.";
+        }
+    </script>
 
 </body>
 </html>
